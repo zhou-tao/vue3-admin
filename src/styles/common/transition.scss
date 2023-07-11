@@ -1,0 +1,33 @@
+/* fade-slide */
+.fade-slide-leave-active,
+.fade-slide-enter-active {
+  @apply transition-all duration-300;
+}
+
+.fade-slide-enter-from {
+  @apply op-0 transform -translate-x-30px;
+}
+
+.fade-slide-leave-to {
+  @apply op-0 transform translate-x-30px;
+}
+
+.fade-slide-leave-active {
+  @apply w-full absolute;
+}
+
+/* breadcrumb */
+.breadcrumb-move,
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  @apply transition-all duration-500;
+}
+
+.breadcrumb-enter-from,
+.breadcrumb-leave-to {
+  @apply op-0 transform translate-x-30px;
+}
+
+.breadcrumb-leave-active {
+  @apply absolute;
+}

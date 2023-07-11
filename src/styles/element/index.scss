@@ -1,0 +1,8 @@
+// 覆盖 element-plus 变量
+:root {
+  --el-color-primary: #377dff;
+}
+
+html.dark {
+  --el-color-primary: #377dff;
+}
