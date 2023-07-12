@@ -9,7 +9,7 @@ const AdminRoutes: AppRouteConfig[] = [
     redirect: '/home/dashboard',
     meta: {
       title: '仪表盘',
-      icon: 'ep:home-filled'
+      icon: 'ep:menu'
     },
     children: [{
       path: 'dashboard',
@@ -28,7 +28,7 @@ const AdminRoutes: AppRouteConfig[] = [
     redirect: '/system/user',
     meta: {
       title: '用户管理',
-      icon: 'ep:user-filled'
+      icon: 'ep:avatar'
     },
     children: [{
       path: 'user',
@@ -57,7 +57,7 @@ const AdminRoutes: AppRouteConfig[] = [
     redirect: '/personal/info',
     meta: {
       title: '账户信息',
-      icon: 'ep:user-filled'
+      icon: 'ep:info-filled'
     },
     children: [{
       path: 'info',

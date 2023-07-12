@@ -112,9 +112,7 @@
     name: '',
     gender: null,
     mobile: '',
-    roles: [],
-    deptName: '',
-    posts: []
+    deptName: ''
   })
 
   function handleAdd() {
@@ -124,9 +122,7 @@
       name: '',
       gender: null,
       mobile: '',
-      roles: [],
-      deptName: '',
-      posts: []
+      deptName: ''
     })
     visible.value = true
   }
@@ -145,18 +141,13 @@
     ],
     mobile: [
       { required: true, message: '请输入联系电话', trigger: 'blur' }
-    ],
-    roles: [
-      { required: true, message: '请选择权限', trigger: 'change' }
-    ],
+    ]
   })
 
   function handleUpdate(row: UserInfoModel) {
     submitType.value = SubmitTypeEnum.UPDATE
     // @ts-ignore
     const rowData: Record<string, any> = reactive(cloneDeep(toRaw(row)))
-    rowData.roles = row.roles.map(r => r.code)
-    rowData.posts = row.posts.map(p => p.code)
     submitForm = rowData
     visible.value = true
   }
@@ -185,10 +176,10 @@
     />
     <div flex items="center">
       <el-button type="primary" @click="handleAdd">
-        <i-ri-add-fill /> 新增
+        <div i-ep-plus></div> 新增
       </el-button>
       <el-button type="danger" :disabled="!selectedData.length" @click="handleDelete(selectedData)">
-        <i-ri-delete-bin-line /> 删除
+        <div i-ep-delete></div> 删除
       </el-button>
     </div>
     <TableModel
@@ -233,22 +224,8 @@
         <el-form-item label="电话" prop="mobile">
           <el-input v-model="submitForm.mobile" placeholder="请输入" />
         </el-form-item>
-        <el-form-item label="权限" prop="roles">
-          <el-select v-model="submitForm.roles" multiple style="width: 100%">
-            <el-option label="用户" value="1" />
-            <el-option label="管理员" value="0" />
-          </el-select>
-        </el-form-item>
         <el-form-item label="部门" prop="deptName">
           <el-input v-model="submitForm.deptName" placeholder="请输入" />
-        </el-form-item>
-        <el-form-item label="岗位" prop="posts">
-          <el-select v-model="submitForm.posts" multiple style="width: 100%">
-            <el-option label="前端" value="0" />
-            <el-option label="后端" value="1" />
-            <el-option label="产品" value="2" />
-            <el-option label="测试" value="3" />
-          </el-select>
         </el-form-item>
       </el-form>
       <template #footer>

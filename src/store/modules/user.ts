@@ -33,13 +33,6 @@ const initialUserState = {
   deptCode: '007',
   deptName: '开发部',
   mobile: '18812345678',
-  posts: [
-    { id: 1, code: 'FRONT-END', name: '前端' },
-    { id: 4, code: 'OPEN-SOURCE', name: '开源' }
-  ],
-  roles: [
-    { id: 0, code: 'ADMIN', name: '管理员', menu: [] }
-  ],
   security: true //密码安全性
 }
 

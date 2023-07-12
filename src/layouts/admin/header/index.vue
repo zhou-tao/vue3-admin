@@ -33,22 +33,22 @@
   >
     <div flex items="center" gap="6">
       <span v-if="isVerticalMenu" cursor="pointer" leading="0" @click="settingStore.toggleCollapse()">
-        <i-ep-expand v-show="menuCollapsed" />
-        <i-ep-fold v-show="!menuCollapsed" />
+        <div i-ep-expand v-show="menuCollapsed"></div>
+        <div i-ep-fold v-show="!menuCollapsed"></div>
       </span>
       <LogoView mr="6" v-else />
       <Breadcrumb v-if="hasBreadcrumb && isVerticalMenu" />
     </div>
     <Menu v-if="!isVerticalMenu" :mode="MenuLayout.HORIZONTAL" />
     <div flex items="center" gap="5">
-      <div class="icon-view" text="13px!" v-if="isSupported" @click="toggleFullScreen">
-        <i-ri-fullscreen-fill v-show="!isFullScreen" />
-        <i-ri-fullscreen-exit-fill v-show="isFullScreen" />
+      <div class="icon-view" v-if="isSupported" @click="toggleFullScreen">
+        <div i-ep-full-screen v-show="!isFullScreen"></div>
+        <div i-app-fullscreen-exit v-show="isFullScreen"></div>
       </div>
       <el-dropdown>
         <el-badge is-dot leading="none">
           <div class="icon-view">
-            <i-ep-bell-filled />
+            <div i-ep-bell-filled></div>
           </div>
         </el-badge>
         <template #dropdown>
@@ -63,19 +63,19 @@
       <div cursor="pointer" ml="6">
         <el-dropdown>
           <div flex items="center">
-            <Avatar :src="avatar" />
+            <el-image fit="cover" :src="avatar" alt="avatar" w-8 h-8 rounded-full shadow-lg b="solid light opacity-40" />
             <span text="base" ml="2">{{ username }}</span>
           </div>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="$router.push({ path: '/personal/index', query: { tab: 'password' } })">
-                <i-ep-lock />用户设置
+                <div i-ep-lock></div>用户设置
               </el-dropdown-item>
               <el-dropdown-item
                 divided
                 @click="$router.replace('/login?redirect=logout')"
               >
-                <i-ep-switch-button />注销登录
+                <div i-ep-switch-button></div>注销登录
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -87,7 +87,7 @@
 
 <style scoped lang="scss">
 .icon-view {
-  @apply w-8 h-8 rounded-full flex-center bg-light cursor-pointer text-15px transition-base hover:bg-light_hover;
+  @apply w-8 h-8 rounded-full flex-center bg-light cursor-pointer text-18px transition-base hover:bg-light_hover;
 }
 
 :deep(.el-dropdown [role=button]) {

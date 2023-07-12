@@ -1,6 +1,3 @@
-import { RoleModel } from './roleModel'
-import { PostModel } from './postModel'
-
 export interface UserInfoModel {
   id: string | number,
   name: string
@@ -11,6 +8,4 @@ export interface UserInfoModel {
   deptCode: Nullable<string>
   deptName: Nullable<string>
   mobile: Nullable<string>
-  roles: Partial<RoleModel>[]
-  posts: Partial<PostModel>[]
 }

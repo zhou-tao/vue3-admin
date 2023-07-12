@@ -8,7 +8,7 @@
 <template>
   <el-footer h="footer" v-show="hasFooter">
     <div h="full" flex="center" text="placeholder">
-      MIT Licensed <i-app-heart text="rose-600!" /> Copyright © 2022-present vue-power-admin
+      MIT Licensed <div i-app-heart text="rose-600!"></div> Copyright © 2022-present vue-power-admin
     </div>
   </el-footer>
 </template>

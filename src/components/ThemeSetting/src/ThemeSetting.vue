@@ -49,7 +49,7 @@
     transition-base
     @click="drawer = true"
   >
-    <i-emoji-artist-palette />
+    <div i-fluent-emoji-flat-artist-palette></div>
   </div>
   <el-drawer
     v-model="drawer"
@@ -61,14 +61,14 @@
       <el-divider>主题</el-divider>
       <ThemeSwitch type="switch" />
       <el-divider mt-12>导航栏</el-divider>
-      <div center gap="6" text="5xl regular">
+      <div flex="center" gap="6" text="5xl regular">
         <el-tooltip
           effect="dark"
           content="侧边菜单"
           placement="bottom"
         >
           <span :class="{ active: isVerticalMenu }" @click="settingStore.setLayout(MenuLayout.VERTICAL)">
-            <i-app-layout cursor="pointer" />
+            <div i-app-layout cursor="pointer"></div>
           </span>
         </el-tooltip>
         <el-tooltip
@@ -77,7 +77,7 @@
           placement="bottom"
         >
           <span :class="{ active: !isVerticalMenu }" @click="settingStore.setLayout(MenuLayout.HORIZONTAL)">
-            <i-app-layout transform rotate-90 cursor="pointer" />
+            <div i-app-layout transform rotate-90 cursor="pointer"></div>
           </span>
         </el-tooltip>
       </div>

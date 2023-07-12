@@ -1,8 +1,22 @@
-import { presetUno, presetAttributify, transformerVariantGroup, transformerDirectives } from 'unocss'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
+import { presetUno, presetAttributify, presetIcons, transformerVariantGroup, transformerDirectives } from 'unocss'
 
 export default {
-  // 添加 windicss 预设、属性化模式
-  presets: [presetUno(), presetAttributify()],
+  presets: [
+    presetUno(),
+    presetAttributify(),
+    presetIcons({
+      warn: true,
+      collections: {
+        app: FileSystemIconLoader('./src/assets/icons')
+      },
+      extraProperties: {
+        'display': 'inline-block',
+        'vertical-align': 'middle',
+        'margin': '0 4px'
+      }
+    })
+  ],
   // 提供指令功能
   transformers: [transformerVariantGroup(), transformerDirectives()],
   theme: {
@@ -29,29 +43,15 @@ export default {
       content: 'var(--content-base-height)'
     }
   },
-  shortcuts: [
-    {
-      'bg-root': 'bg-root_light dark:bg-root_dark'
-    },
-    {
-      'bg-page': 'bg-page_light dark:bg-page_dark'
-    },
-    {
-      'transition-base': 'transition-all duration-150 ease-in-out'
-    },
-    {
-      'page-base': 'min-h-content overflow-x-hidden box-border'
-    },
-    {
-      'page-card': 'page-base bg-page rounded px-6 py-5'
-    },
-    {
-      'page-pure': 'page-base bg-page rounded h-content'
-    },
-    {
-      'flex-center': 'flex items-center justify-center'
-    }
-  ],
+  shortcuts: {
+    'bg-root': 'bg-root_light dark:bg-root_dark',
+    'bg-page': 'bg-page_light dark:bg-page_dark',
+    'transition-base': 'transition-all duration-150 ease-in-out',
+    'page-base': 'min-h-content overflow-x-hidden box-border',
+    'page-card': 'page-base bg-page rounded px-6 py-5',
+    'page-pure': 'page-base bg-page rounded h-content',
+    'flex-center': 'flex items-center justify-center'
+  },
   // 自定义规则
   rules: [
     [
