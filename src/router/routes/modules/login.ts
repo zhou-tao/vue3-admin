@@ -5,7 +5,7 @@ const LoginRoute: AppRouteConfig = {
   name: 'Login',
   component: () => import('@/views/login/index.vue'),
   meta: {
-    title: 'menu.login',
+    title: '登录',
     requiresAuth: false
   }
 }

@@ -9,7 +9,6 @@ const ElementPlusComponents = [
 // preload all deps
 export const createOptimizeDeps = () => ({
   include: [
-    '@wangeditor/editor-for-vue',
     ...ElementPlusComponents.map(comp => `element-plus/es/components/${comp}/style/index`)
   ]
 })

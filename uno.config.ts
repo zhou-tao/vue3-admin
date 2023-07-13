@@ -1,24 +1,7 @@
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
-import { presetUno, presetAttributify, presetIcons, transformerVariantGroup, transformerDirectives } from 'unocss'
+import { defineConfig, presetUno, presetAttributify, presetIcons, transformerVariantGroup, transformerDirectives } from 'unocss'
 
-export default {
-  presets: [
-    presetUno(),
-    presetAttributify(),
-    presetIcons({
-      warn: true,
-      collections: {
-        app: FileSystemIconLoader('./src/assets/icons')
-      },
-      extraProperties: {
-        'display': 'inline-block',
-        'vertical-align': 'middle',
-        'margin': '0 4px'
-      }
-    })
-  ],
-  // 提供指令功能
-  transformers: [transformerVariantGroup(), transformerDirectives()],
+export default defineConfig({
   theme: {
     colors: {
       root_light: '#f5f6fa', // 最底层背景
@@ -52,7 +35,6 @@ export default {
     'page-pure': 'page-base bg-page rounded h-content',
     'flex-center': 'flex items-center justify-center'
   },
-  // 自定义规则
   rules: [
     [
       'text-brand-gradient',
@@ -82,5 +64,29 @@ export default {
         'box-shadow': '0 0 12px 0 rgb(0 0 0 / 9%)'
       }
     ]
-  ]
-}
+  ],
+  presets: [
+    presetUno(),
+    presetAttributify(),
+    presetIcons({
+      warn: true,
+      collections: {
+        app: FileSystemIconLoader('./src/assets/icons')
+      },
+      extraProperties: {
+        'display': 'inline-block',
+        'vertical-align': 'middle',
+        'margin': '0 4px'
+      }
+    })
+  ],
+  transformers: [
+    transformerVariantGroup(),
+    transformerDirectives()
+  ],
+  safelist: [
+    'i-ep-menu',
+    'i-ep-avatar',
+    'i-ep-info-filled'
+  ],
+})

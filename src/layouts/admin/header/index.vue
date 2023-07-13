@@ -68,8 +68,8 @@
           </div>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item @click="$router.push({ path: '/personal/index', query: { tab: 'password' } })">
-                <div i-ep-lock></div>用户设置
+              <el-dropdown-item @click="$router.push('/personal/info')">
+                <div i-ep-user></div>个人中心
               </el-dropdown-item>
               <el-dropdown-item
                 divided

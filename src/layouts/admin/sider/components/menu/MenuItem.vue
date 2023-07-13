@@ -1,7 +1,6 @@
 <script setup lang="ts" name="MenuItem">
   import type { RouteRecordName } from 'vue-router'
   import type { Menu, MenuItemComponent } from '@h/logic/useMenu'
-  import { Icon } from '@iconify/vue'
 
   const props = defineProps<{
     component: MenuItemComponent,
@@ -17,9 +16,9 @@
 
 <template>
   <component :is="component" :index="(index as any)">
-    <Icon class="icon" v-if="icon && !isSubMenu" :icon="icon" />
+    <div v-if="icon && !isSubMenu" :class="`icon ${icon}`"></div>
     <template #title>
-      <Icon class="icon" v-if="icon && isSubMenu" :icon="icon" />
+      <div v-if="icon && isSubMenu" :class="`icon ${icon}`"></div>
       <span>{{ title }}</span>
     </template>
     <template v-if="children?.length">
