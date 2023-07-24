@@ -44,8 +44,8 @@
   >
     <el-tabs
       type="card"
-      closable
       style="width: calc(100% - 60px)"
+      :closable="appStore.visitedViews.length > 1"
       :model-value="route.path"
       @tab-click="handleClickTab"
       @tab-remove="handleRemoveTab"
