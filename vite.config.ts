@@ -1,11 +1,11 @@
-import type { ConfigEnv } from 'vite'
 import { resolve } from 'node:path'
+import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
+import autoprefixer from 'autoprefixer'
 import { createVitePlugins } from './build/vite/plugins'
 import { createProxy } from './build/vite/proxy'
 import { createOptimizeDeps } from './build/vite/optimize-deps'
 import { envParse } from './build/utils'
-import autoprefixer from 'autoprefixer'
 
 export default ({ mode }: ConfigEnv) => {
   const envDir = resolve(__dirname, 'env')
@@ -49,7 +49,7 @@ export default ({ mode }: ConfigEnv) => {
             'axios': ['axios'],
             'nprogress': ['nprogress']
           }
-        },
+        }
       }
     },
     css: {
@@ -58,7 +58,7 @@ export default ({ mode }: ConfigEnv) => {
         plugins: [
           autoprefixer
         ]
-      },
+      }
     },
     plugins: createVitePlugins(env, mode === 'production'),
     // fix(vite): optimized dependencies changed. reloading

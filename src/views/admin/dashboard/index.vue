@@ -2,7 +2,9 @@
 </script>
 
 <template>
-  <div page-card>Dashboard</div>
+  <div page-card>
+    Dashboard
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

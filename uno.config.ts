@@ -88,5 +88,5 @@ export default defineConfig({
     'i-ep-menu',
     'i-ep-avatar',
     'i-ep-info-filled'
-  ],
+  ]
 })

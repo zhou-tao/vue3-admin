@@ -17,16 +17,22 @@
       { required: true, message: '请输入新密码', trigger: 'blur' }
     ],
     confirmPassword: [
-      { required: true, trigger: 'blur', validator: (rule: any, value: any, callback: any) => {
-        if (value === '') {
-          callback(new Error('请再次输入新密码'))
-        } else if (value !== formData.newPassword) {
-          callback(new Error('两次输入的密码不一致!'))
-        } else {
-          callback()
+      {
+        required: true,
+        trigger: 'blur',
+        validator: (rule: any, value: any, callback: any) => {
+          if (value === '') {
+            callback(new Error('请再次输入新密码'))
+          }
+          else if (value !== formData.newPassword) {
+            callback(new Error('两次输入的密码不一致!'))
+          }
+          else {
+            callback()
+          }
         }
-      } }
-    ],
+      }
+    ]
   }
 
   async function submit() {
@@ -60,7 +66,9 @@
         <el-input v-model="formData.confirmPassword" type="password" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submit">保存</el-button>
+        <el-button type="primary" @click="submit">
+          保存
+        </el-button>
         <el-button>取消</el-button>
       </el-form-item>
     </el-form>

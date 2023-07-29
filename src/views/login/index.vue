@@ -15,7 +15,7 @@
     bg="gradient-light"
     dark:bg="gradient-dark"
   >
-    <img src="@/assets/images/login_banner.svg" w="lg" />
+    <img src="@/assets/images/login_banner.svg" w="lg">
     <div fixed top="3%" right="2%" text="xl">
       <ThemeSwitch />
     </div>

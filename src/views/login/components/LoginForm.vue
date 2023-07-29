@@ -1,9 +1,9 @@
 <script setup lang="ts" name="LoginForm">
-  import config from '@/config'
-  import { LoginParams } from '@/api/_auth/model'
   import { useMessage } from '@h/web/useMessage'
-  import { FormInstance, FormRules } from 'element-plus'
+  import type { FormInstance, FormRules } from 'element-plus'
   import { useRouter } from 'vue-router'
+  import type { LoginParams } from '@/api/_auth/model'
+  import config from '@/config'
 
   const router = useRouter()
   const { $notify, $message } = useMessage()
@@ -21,7 +21,7 @@
 
   async function doLogin(formEl: FormInstance | undefined) {
     if (!formEl) return
-    await formEl.validate(async valid => {
+    await formEl.validate(async (valid) => {
       if (!valid) return false
       loading.value = true
       setTimeout(() => {
@@ -33,7 +33,7 @@
         $notify({
           title: 'Welcome',
           message: '欢迎登录',
-          type: 'success',
+          type: 'success'
         })
       }, 1500)
     })
@@ -57,8 +57,8 @@
       <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules">
         <el-form-item prop="username">
           <el-input
-            size="large"
             v-model="loginForm.username"
+            size="large"
             placeholder="账号"
           />
         </el-form-item>
@@ -74,7 +74,9 @@
         </el-form-item>
         <el-form-item>
           <div w="360px" flex="center" justify="between">
-            <el-checkbox v-model="loginForm.rememberMe">记住密码</el-checkbox>
+            <el-checkbox v-model="loginForm.rememberMe">
+              记住密码
+            </el-checkbox>
             <span
               text="sm primary"
               cursor="pointer"
@@ -102,7 +104,6 @@
 </template>
 
 <style lang="scss" scoped>
-
 :deep(.el-form) {
   .el-input__wrapper, .el-checkbox__inner {
     @apply bg-transparent;

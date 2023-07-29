@@ -1,5 +1,5 @@
 export interface UserInfoModel {
-  id: string | number,
+  id: string | number
   name: string
   userId: number
   username: string
@@ -8,4 +8,6 @@ export interface UserInfoModel {
   deptCode: Nullable<string>
   deptName: Nullable<string>
   mobile: Nullable<string>
+  roles: Array<any>
+  posts: Array<any>
 }

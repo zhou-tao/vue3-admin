@@ -1,6 +1,6 @@
-import App from './App.vue'
 import { createApp } from 'vue'
 import { registerGlobComp } from '@c/register'
+import App from './App.vue'
 import { setupStore } from '@/store'
 import { router, setupRouter } from '@/router'
 import { setupRouterGuard } from '@/router/guard'

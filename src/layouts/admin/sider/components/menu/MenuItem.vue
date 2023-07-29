@@ -3,22 +3,21 @@
   import type { Menu, MenuItemComponent } from '@h/logic/useMenu'
 
   const props = defineProps<{
-    component: MenuItemComponent,
+    component: MenuItemComponent
     title: string
     index: RouteRecordName | undefined
-    icon?: string,
+    icon?: string
     children?: Menu[]
   }>()
 
   const isSubMenu = computed(() => !!props.children?.length)
-
 </script>
 
 <template>
-  <component :is="component" :index="(index as any)">
-    <div v-if="icon && !isSubMenu" :class="`icon ${icon}`"></div>
+  <component :is="component" :index="index as any">
+    <div v-if="icon && !isSubMenu" :class="`icon ${icon}`" />
     <template #title>
-      <div v-if="icon && isSubMenu" :class="`icon ${icon}`"></div>
+      <div v-if="icon && isSubMenu" :class="`icon ${icon}`" />
       <span>{{ title }}</span>
     </template>
     <template v-if="children?.length">

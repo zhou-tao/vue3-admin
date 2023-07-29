@@ -1,5 +1,6 @@
 <script setup lang="ts" name="PageNotFound">
   import { useRouter } from 'vue-router'
+
   const router = useRouter()
 </script>
 
@@ -9,7 +10,7 @@
     bg-root
     flex="center col"
   >
-    <img src="@/assets/images/not_found.svg" width="600" alt="not_found" />
+    <img src="@/assets/images/not_found.svg" width="600" alt="not_found">
     <el-button
       mt-12
       round

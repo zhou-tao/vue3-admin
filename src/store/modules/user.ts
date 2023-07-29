@@ -1,10 +1,10 @@
+import { createCookie, removeCookies } from '@h/web/useCookie'
+import { defineStore } from 'pinia'
 import type { LoginParams, LoginResultModel } from '@/api/_auth/model'
 import type { UserInfoModel } from '@/api/_system/model/userModel'
 import { loginApi, tokenRefresh } from '@/api/_auth'
 import { checkPassword } from '@/utils/regex'
-import { createCookie, removeCookies } from '@h/web/useCookie'
 import { TokenTypeEnum } from '@/enums/authEnum'
-import { defineStore } from 'pinia'
 import { getAccountInfo } from '@/api/_system/user'
 import { router } from '@/router'
 
@@ -33,7 +33,9 @@ const initialUserState = {
   deptCode: '007',
   deptName: '开发部',
   mobile: '18812345678',
-  security: true //密码安全性
+  security: true, // 密码安全性
+  roles: [],
+  posts: []
 }
 
 export const useUserStore = defineStore('user', {
@@ -48,7 +50,7 @@ export const useUserStore = defineStore('user', {
     }: LoginParams): Promise<LoginResultModel> {
       const data = await loginApi({ username, password })
       if (!data) {
-        return Promise.reject('login failed!')
+        return Promise.reject(new Error('login failed!'))
       }
       setTokenHelper(data)
       this.security = checkPassword(password)

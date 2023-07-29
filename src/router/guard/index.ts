@@ -1,9 +1,10 @@
 import type { Router } from 'vue-router'
+
 // import { createPermissionGuard } from '@/router/guard/permissionGuard'
 // import { isBasicRoute } from '@/router/helper'
+import NProgress from 'nprogress'
 import { AxiosCanceler } from '@/utils/http/axiosCancel'
 import { useSettingStore } from '@/store/modules/setting'
-import NProgress from 'nprogress'
 import config from '@/config'
 
 /**
@@ -22,7 +23,7 @@ export function setupRouterGuard(router: Router) {
  * @param router
  */
 const createTitleGuard = (router: Router) => {
-  router.beforeEach(to => {
+  router.beforeEach((to) => {
     document.title = to.meta.title || config.APP.title
   })
 }

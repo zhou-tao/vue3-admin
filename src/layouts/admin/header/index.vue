@@ -1,4 +1,5 @@
 <script setup lang="ts" name="LayoutHeader">
+  import { storeToRefs } from 'pinia'
   import Breadcrumb from './components/Breadcrumb.vue'
   import ThemeSwitch from '@/components/ThemeSwitch'
   import LogoView from '@/layouts/admin/sider/components/LogoView.vue'
@@ -7,7 +8,6 @@
   import { useSettingStore } from '@/store/modules/setting'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'
   import { MenuLayout } from '@/enums/menuEnum'
-  import { storeToRefs } from 'pinia'
 
   const { username, avatar } = storeToRefs(useUserStore())
   const settingStore = useSettingStore()
@@ -18,7 +18,6 @@
   } = storeToRefs(settingStore)
 
   autoRemoveListener()
-
 </script>
 
 <template>
@@ -33,22 +32,22 @@
   >
     <div flex items="center" gap="6">
       <span v-if="isVerticalMenu" cursor="pointer" leading="0" @click="settingStore.toggleCollapse()">
-        <div i-ep-expand v-show="menuCollapsed"></div>
-        <div i-ep-fold v-show="!menuCollapsed"></div>
+        <div v-show="menuCollapsed" i-ep-expand />
+        <div v-show="!menuCollapsed" i-ep-fold />
       </span>
-      <LogoView mr="6" v-else />
+      <LogoView v-else mr="6" />
       <Breadcrumb v-if="hasBreadcrumb && isVerticalMenu" />
     </div>
     <Menu v-if="!isVerticalMenu" :mode="MenuLayout.HORIZONTAL" />
     <div flex items="center" gap="5">
-      <div class="icon-view" v-if="isSupported" @click="toggleFullScreen">
-        <div i-ep-full-screen v-show="!isFullScreen"></div>
-        <div i-app-fullscreen-exit v-show="isFullScreen"></div>
+      <div v-if="isSupported" class="icon-view" @click="toggleFullScreen">
+        <div v-show="!isFullScreen" i-ep-full-screen />
+        <div v-show="isFullScreen" i-app-fullscreen-exit />
       </div>
       <el-dropdown>
         <el-badge is-dot leading="none">
           <div class="icon-view">
-            <div i-ep-bell-filled></div>
+            <div i-ep-bell-filled />
           </div>
         </el-badge>
         <template #dropdown>
@@ -69,13 +68,13 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="$router.push('/personal/info')">
-                <div i-ep-user></div>个人中心
+                <div i-ep-user />个人中心
               </el-dropdown-item>
               <el-dropdown-item
                 divided
                 @click="$router.replace('/login?redirect=logout')"
               >
-                <div i-ep-switch-button></div>注销登录
+                <div i-ep-switch-button />注销登录
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
