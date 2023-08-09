@@ -11,6 +11,7 @@
     "plop": "plop",
     "build": "vue-tsc && vite build",
     "preview": "yarn build && vite preview",
+    "typecheck": "vue-tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "postinstall": "simple-git-hooks"

@@ -1,5 +1,4 @@
 import { resolve } from 'node:path'
-import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
 import autoprefixer from 'autoprefixer'
 import { createVitePlugins } from './build/vite/plugins'
@@ -7,7 +6,7 @@ import { createProxy } from './build/vite/proxy'
 import { createOptimizeDeps } from './build/vite/optimize-deps'
 import { envParse } from './build/utils'
 
-export default ({ mode }: ConfigEnv) => {
+export default defineConfig(({ mode }) => {
   const envDir = resolve(__dirname, 'env')
   const env = envParse(loadEnv(mode, envDir) as ImportMetaEnv)
   const {
@@ -15,7 +14,7 @@ export default ({ mode }: ConfigEnv) => {
     VITE_PUBLIC_PATH,
     VITE_DROP_CONSOLE
   } = env
-  return defineConfig({
+  return {
     base: VITE_PUBLIC_PATH,
     resolve: {
       alias: {
@@ -56,12 +55,12 @@ export default ({ mode }: ConfigEnv) => {
       devSourcemap: false,
       postcss: {
         plugins: [
-          autoprefixer
+          autoprefixer() as any
         ]
       }
     },
     plugins: createVitePlugins(env, mode === 'production'),
-    // fix(vite): optimized dependencies changed. reloading
+    // // fix(vite): optimized dependencies changed. reloading
     optimizeDeps: createOptimizeDeps()
-  })
-}
+  }
+})
