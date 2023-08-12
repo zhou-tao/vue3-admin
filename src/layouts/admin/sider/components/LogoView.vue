@@ -14,7 +14,7 @@
     cursor="pointer"
     @click="router.push('/home')"
   >
-    <img src="@/assets/images/logo.svg" alt="logo" width="30">
+    <img src="/vue.svg" alt="logo" width="30">
     <h1
       v-show="!settingStore.menuCollapsed"
       text="xl main hover:regular"

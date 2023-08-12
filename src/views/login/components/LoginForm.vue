@@ -53,7 +53,7 @@
     <h1 text="3xl brand-gradient center" font="bold mono" m="t-lg b-0" select-none>
       {{ config.APP.title }}
     </h1>
-    <div m="t-12 mt-11" flex="~ col">
+    <div m="t-12" flex="~ col">
       <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules">
         <el-form-item prop="username">
           <el-input

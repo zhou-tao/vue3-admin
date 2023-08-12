@@ -2,22 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/vue.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue3 Starter</title>
   </head>
   <body>
     <script>
       (() => {
-        var htmlRoot = document.documentElement
-        var theme = window.localStorage.getItem('vueuse-color-scheme');
-        var hasLoading = window.localStorage.getItem('vp_has_fp_loading');
-        if (hasLoading === 'false') htmlRoot.classList.add('hide-loading')
+        let htmlRoot = document.documentElement
+        let theme = window.localStorage.getItem('vueuse-color-scheme')
+  const hasLoading = window.localStorage.getItem('vp_has_fp_loading')
+  if (hasLoading === 'false') htmlRoot.classList.add('hide-loading')
         if (htmlRoot && theme) {
-          htmlRoot.setAttribute('data-theme', theme);
-          theme = htmlRoot = null;
-        }
-      })();
+          htmlRoot.setAttribute('data-theme', theme)
+    theme = htmlRoot = null
+  }
+      })()
     </script>
     <div id="app">
       <style>
