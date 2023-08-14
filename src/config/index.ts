@@ -4,7 +4,7 @@ export default defineConfig({
   // 系统设置
   APP: {
     // 业务中心侧边菜单标题
-    title: 'Vue3 Starter',
+    title: 'Vue3 Admin',
     // 密码安全检查
     security: false
   },
