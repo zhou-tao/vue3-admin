@@ -1,5 +1,4 @@
-import type { CookieAttributes } from 'js-cookie'
-import Cookie from 'js-cookie'
+import Cookie, { type CookieAttributes } from 'js-cookie'
 import type { TokenTypeEnum } from '@/enums/authEnum'
 import { isJsonString } from '@/utils/is'
 
