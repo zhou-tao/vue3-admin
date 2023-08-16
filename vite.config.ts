@@ -1,14 +1,14 @@
 import { resolve } from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
+import { parse } from 'vite-plugin-env-parser'
 import autoprefixer from 'autoprefixer'
 import { createVitePlugins } from './build/vite/plugins'
 import { createProxy } from './build/vite/proxy'
 import { createOptimizeDeps } from './build/vite/optimize-deps'
-import { envParse } from './build/utils'
 
 export default defineConfig(({ mode }) => {
   const envDir = resolve(__dirname, 'env')
-  const env = envParse(loadEnv(mode, envDir) as ImportMetaEnv)
+  const env = parse(loadEnv(mode, envDir) as ImportMetaEnv)
   const {
     VITE_PORT,
     VITE_PUBLIC_PATH,

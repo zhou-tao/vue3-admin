@@ -1,22 +1,14 @@
 import type { AxiosResponse } from 'axios'
-import { envParse } from '../../../build/utils'
+import { VITE_BASE_API } from 'vite-env'
 import type { RequestConfig, Result } from '#/http'
 import { ErrorCodeEnum, HttpMethodEnum, CodeEnum } from '@/enums/httpEnum'
 import { alertErrMsg } from '@/utils/message'
-import { isDevMode } from '@/utils/env'
 
 // 生成token
 export const generateBaseToken = (token: Nullable<string>) => `bearer ${token}`
 
 // 获取默认请求前缀地址
 export const getDefaultBaseURL = () => {
-  const { VITE_BASE_API, VITE_USE_PROXY, VITE_USE_MOCK } = envParse(
-    import.meta.env
-  )
-  // 使用proxy或者mock时，无需设置默认请求前缀
-  if (isDevMode() && (VITE_USE_PROXY || VITE_USE_MOCK)) {
-    return ''
-  }
   return VITE_BASE_API
 }
 
