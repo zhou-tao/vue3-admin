@@ -119,8 +119,8 @@ devDependencies:
     specifier: 4.3.9
     version: 4.3.9(@types/node@18.8.0)(sass@1.63.6)(terser@5.18.2)
   vite-plugin-env-parser:
-    specifier: ^0.3.0
-    version: 0.3.0(vite@4.3.9)
+    specifier: ^0.4.1
+    version: 0.4.1(vite@4.3.9)
   vite-plugin-vue-setup-extend:
     specifier: ^0.4.0
     version: 0.4.0(vite@4.3.9)
@@ -6127,9 +6127,8 @@ packages:
     engines: {node: '>= 10.13.0'}
     dev: true
 
-  /vite-plugin-env-parser@0.3.0(vite@4.3.9):
-    resolution: {integrity: sha512-zSLBneVtTl4FtbypSE+RhkWF1a8++VwSojSDwQH9deTZ3T9ZfEA/cZPwZah+T6YfbgvbbwP+2E5JjyRuEWrzjg==}
-    requiresBuild: true
+  /vite-plugin-env-parser@0.4.1(vite@4.3.9):
+    resolution: {integrity: sha512-nJo+Xrw/JeI2/XHhoEFAScWGKuYE8qs3mgILXMFVuGuCWleRpRZyoDKTJ4ckXNkOqFBeVxwP3u70rHUoe/gPEw==}
     peerDependencies:
       vite: '>=4'
     dependencies:

@@ -13,7 +13,8 @@ export const createVitePlugins = (viteEnv: Record<string, any>, isBuild: boolean
     vue(),
 
     envParser({
-      dts: 'types/env.d.ts'
+      dts: 'types/env.d.ts',
+      injectViteDTS: true
     }),
 
     // 使setup标签支持name属性配置
